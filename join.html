@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <title>Rice Secondary</title>
+  </head>
+  <body>
+    <div class="navbar">
+
+      <img src="logo2.png" class="navbarlogo" alt="Logo">
+
+      <div class="navlinks">
+
+        <a href="index.html">Home</a>
+        <a href="rules.html">Our Rules</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">Our Staff Team ▾</button>
+
+          <div class="dropdown-content">
+            <a href="elt.html">ELT</a>
+            <a href="slt.html">SLT</a>
+            <a href="mlt.html">MLT</a>
+          </div>
+
+        </div>
+
+        <a href="join.html">Apply to Join Us</a>
+
+      </div>
+
+
+      <div class="options-dropdown">
+
+        <button class="dropbtn">Options ▾</button>
+
+        <div class="dropdown-content">
+
+          <a href="index.html">Home</a>
+          <a href="rules.html">Our Rules</a>
+
+          <div class="dropdown-sub">
+            Staff Team ▸
+
+            <div class="dropdown-content-sub">
+              <a href="elt.html">ELT</a>
+              <a href="slt.html">SLT</a>
+              <a href="mlt.html">MLT</a>
+            </div>
+
+          </div>
+
+          <a href="join.html">Apply to Join Staff</a>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>Rice Secondary - Apply</title>
+  <style>
+    form {
+      max-width: 500px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 12px;
+      font-size: 18px;
+      background-color: #222;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="apply">Apply today!</h1>
+
+  <form id="applicationForm">
+    <input type="text" name="fullName" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email or Phone Number" required>
+    <input type="text" name="discordID" placeholder="Discord ID" required>
+    <input type="text" name="robloxID" placeholder="Roblox ID" required>
+    <input type="number" name="age" placeholder="Age" required>
+
+    <!-- Extra fields can be added here -->
+    <!-- <input type="text" name="extra1" placeholder="Extra Field"> -->
+
+    <button type="submit">Submit Application</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('applicationForm');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevent page refresh
+
+      // Collect form data
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => { data[key] = value });
+
+      // Construct Discord message
+      const content = `**New Application Received**\n` +
+                      `Full Name: ${data.fullName}\n` +
+                      `Email/Phone: ${data.email}\n` +
+                      `Discord ID: ${data.discordID}\n` +
+                      `Roblox ID: ${data.robloxID}\n` +
+                      `Age: ${data.age}`;
+
+      // Send to Discord webhook
+      try {
+        await fetch('https://discord.com/api/webhooks/1481354546591830040/SejGVuB_U5WGEqeER_Syd4iuJGFIaeZvxtURrwmN-6qFNKQDH6hmE_aZVzhleC_fFv5f', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ content })
+        });
+
+        alert('Application sent successfully!');
+        form.reset(); // Clear form
+      } catch (err) {
+        alert('Error sending application. Please try again.');
+        console.error(err);
+      }
+    });
+  </script>
+<h6>© Rice Secondary 2026. All rights reserved.</h6>
+
+  </body>
+</html>
