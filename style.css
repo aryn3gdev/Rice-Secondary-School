@@ -1,0 +1,194 @@
+body {
+  background: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar {
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  z-index: 1000;
+}
+
+.navbarlogo {
+  border-radius: 12px;
+  width: 60px;
+  margin-right: 15px;
+}
+
+/* LINKS */
+
+.navlinks {
+  display: flex;
+  align-items: center;
+}
+
+.navlinks a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 14px;
+  font-size: 18px;
+}
+
+.navlinks a:hover {
+  background: #444;
+  border-radius: 6px;
+}
+
+/* DROPDOWNS */
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background: #444;
+  border-radius: 6px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #333;
+  min-width: 160px;
+  z-index: 1001;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background: #444;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* OPTIONS DROPDOWN */
+
+.options-dropdown {
+  display: none;
+  position: relative;
+  margin-left: auto;
+}
+
+.options-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* SUB DROPDOWN */
+
+.dropdown-sub {
+  padding: 10px;
+  color: white;
+  position: relative;
+}
+
+.dropdown-content-sub {
+  display: none;
+  position: absolute;
+  right: 100%;
+  top: 0;
+  background: #444;
+  min-width: 120px;
+}
+
+.dropdown-content-sub a {
+  display: block;
+  padding: 10px;
+  color: white;
+}
+
+.dropdown-sub:hover .dropdown-content-sub {
+  display: block;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+
+  .navlinks {
+    display: none;
+  }
+
+  .options-dropdown {
+    display: block;
+  }
+
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+}
+
+.heroimg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.RSS {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+  font-size: 60px;
+  text-align: center;
+}
+
+.BottomTitle {
+  font-family: Verdana;
+  text-align: center;
+  font-weight: bold;
+  font-size-adjust: auto;
+  font-size: 50px;
+}
+
+.parbot {
+  font-family: monospace;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.Rules {
+  font-family: Verdana;
+  text-align: center;
+  font-size: 75px;
+}
+
+.body {
+  font-family: monospace;
+  text-align: left;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-size: 15px;
+}
+
+.apply {
+  text-align: center;
+  font-family: monospace;
+  font-size: 50px;
+}
