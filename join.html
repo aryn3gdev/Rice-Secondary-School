@@ -110,44 +110,47 @@
     <button type="submit">Submit Application</button>
   </form>
 
-  <script>
-    const form = document.getElementById('applicationForm');
+<script>
+const form = document.getElementById('applicationForm');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault(); // Prevent page refresh
+form.addEventListener('submit', async (e) => {
+  e.preventDefault(); // Prevent page refresh
 
-      // Collect form data
-      const formData = new FormData(form);
-      const data = {};
-      formData.forEach((value, key) => { data[key] = value });
+  const formData = new FormData(form);
+  const data = {};
 
-      // Construct Discord message
-      const content = `**New Application Received**\n` +
-                      `Full Name: ${data.fullName}\n` +
-                      `Email/Phone: ${data.email}\n` +
-                      `Discord ID: ${data.discordID}\n` +
-                      `Roblox ID: ${data.robloxID}\n` +
-                      `Age: ${data.age}`;
-
-      // Send to Discord webhook
-try {
-  const res = await fetch('/api/sendApplication', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ content })
+  formData.forEach((value, key) => {
+    data[key] = value;
   });
 
-  if (!res.ok) throw new Error("Request failed");
+  const content =
+    "**New Application Received**\n" +
+    "Full Name: " + data.fullName + "\n" +
+    "Email/Phone: " + data.email + "\n" +
+    "Discord ID: " + data.discordID + "\n" +
+    "Roblox ID: " + data.robloxID + "\n" +
+    "Age: " + data.age;
 
-  alert('Application sent successfully!');
-  form.reset();
-} catch (err) {
-  alert('Error sending application. Please try again.');
-  console.error(err);
-}
-  </script>
+  try {
+    const res = await fetch("/api/sendApplication", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ content })
+    });
+
+    if (!res.ok) throw new Error("Request failed");
+
+    alert("Application sent successfully!");
+    form.reset();
+
+  } catch (err) {
+    alert("Error sending application. Please try again.");
+    console.error(err);
+  }
+});
+</script>
 <h6>© Rice Secondary 2026. All rights reserved.</h6>
 
   </body>
