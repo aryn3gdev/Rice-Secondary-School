@@ -130,22 +130,23 @@
                       `Age: ${data.age}`;
 
       // Send to Discord webhook
-      try {
-        await fetch(process.env.DISCORD_WEBHOOK, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ content })
-        });
+try {
+  const res = await fetch('/api/sendApplication', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ content })
+  });
 
-        alert('Application sent successfully!');
-        form.reset(); // Clear form
-      } catch (err) {
-        alert('Error sending application. Please try again.');
-        console.error(err);
-      }
-    });
+  if (!res.ok) throw new Error("Request failed");
+
+  alert('Application sent successfully!');
+  form.reset();
+} catch (err) {
+  alert('Error sending application. Please try again.');
+  console.error(err);
+}
   </script>
 <h6>© Rice Secondary 2026. All rights reserved.</h6>
 
