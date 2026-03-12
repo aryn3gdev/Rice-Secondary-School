@@ -131,7 +131,7 @@
 
       // Send to Discord webhook
       try {
-        await fetch('https://discord.com/api/webhooks/1481354546591830040/SejGVuB_U5WGEqeER_Syd4iuJGFIaeZvxtURrwmN-6qFNKQDH6hmE_aZVzhleC_fFv5f', {
+        await fetch(process.env.DISCORD_WEBHOOK, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
